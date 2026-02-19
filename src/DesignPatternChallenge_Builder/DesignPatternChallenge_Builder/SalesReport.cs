@@ -1,13 +1,5 @@
-// DESAFIO: Gerador de Relatórios Complexos
-// PROBLEMA: Sistema precisa gerar diferentes tipos de relatórios (PDF, Excel, HTML)
-// com múltiplas configurações opcionais (cabeçalho, rodapé, gráficos, tabelas, filtros)
-// O código atual usa construtores enormes ou muitos setters, tornando difícil criar relatórios
-
 namespace DesignPatternChallenge_Builder
 {
-    // Contexto: Sistema de BI que gera relatórios customizados para diferentes departamentos
-    // Cada relatório pode ter dezenas de configurações opcionais
-    
     internal class SalesReport
     {
         public string Title { get; set; }
@@ -37,21 +29,21 @@ namespace DesignPatternChallenge_Builder
             Console.WriteLine($"\n=== Gerando Relatório: {Title} ===");
             Console.WriteLine($"Formato: {Format}");
             Console.WriteLine($"Período: {StartDate:dd/MM/yyyy} a {EndDate:dd/MM/yyyy}");
-            
+
             if (IncludeHeader)
                 Console.WriteLine($"Cabeçalho: {HeaderText}");
-            
+
             if (IncludeCharts)
                 Console.WriteLine($"Gráfico: {ChartType}");
-            
+
             Console.WriteLine($"Colunas: {string.Join(", ", Columns)}");
-            
+
             if (Filters.Count > 0)
                 Console.WriteLine($"Filtros: {string.Join(", ", Filters)}");
-            
+
             if (!string.IsNullOrEmpty(GroupBy))
                 Console.WriteLine($"Agrupado por: {GroupBy}");
-            
+
             if (IncludeFooter)
                 Console.WriteLine($"Rodapé: {FooterText}");
 
